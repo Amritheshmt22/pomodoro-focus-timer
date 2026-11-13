@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Focus Timer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">Daily focus tool</p>
+      <h1 id="page-title">Pomodoro Focus Timer</h1>
+      <p class="intro">Work in calm 25 minute sessions, take short breaks, and track how many focus rounds you finish.</p>
+    </section>
+
+    <section class="timer-card" aria-label="Pomodoro timer">
+      <div class="mode-tabs" role="group" aria-label="Timer mode">
+        <button class="mode-button active" type="button" data-mode="focus" aria-pressed="true">Focus</button>
+        <button class="mode-button" type="button" data-mode="short" aria-pressed="false">Short break</button>
+        <button class="mode-button" type="button" data-mode="long" aria-pressed="false">Long break</button>
+      </div>
+
+      <div class="timer-visual" aria-live="polite">
+        <svg class="progress-ring" viewBox="0 0 220 220" aria-hidden="true">
+          <circle class="ring-track" cx="110" cy="110" r="96"></circle>
+          <circle id="ringProgress" class="ring-progress" cx="110" cy="110" r="96"></circle>
+        </svg>
+        <div class="time-stack">
+          <span id="modeLabel" class="mode-label">Focus time</span>
+          <strong id="timeDisplay" class="time-display">25:00</strong>
+          <span id="timerStatus" class="timer-status">Ready to start</span>
+        </div>
+      </div>
+
+      <div class="controls" aria-label="Timer controls">
+        <button id="startPauseButton" class="primary-button" type="button">Start focus</button>
+        <button id="resetButton" class="secondary-button" type="button">Reset</button>
+        <button id="skipButton" class="secondary-button" type="button">Skip</button>
+      </div>
+
+      <div class="cycle-row" aria-label="Focus cycle progress">
+        <span>Cycle</span>
+        <div id="cycleDots" class="cycle-dots"></div>
+      </div>
+    </section>
+
+    <section class="stats-grid" aria-label="Focus statistics">
+      <article class="stat-card">
+        <span class="stat-label">Focus sessions</span>
+        <strong id="sessionCount">0</strong>
+        <p>Saved in this browser</p>
+      </article>
+      <article class="stat-card">
+        <span class="stat-label">Focus minutes</span>
+        <strong id="focusMinutes">0</strong>
+        <p>Completed focus time</p>
+      </article>
+      <article class="stat-card">
+        <span class="stat-label">Current cycle</span>
+        <strong id="cycleText">1 of 4</strong>
+        <p>Long break after four</p>
+      </article>
+    </section>
+
+    <section class="tips-card" aria-labelledby="tips-title">
+      <h2 id="tips-title">How to use it</h2>
+      <ol>
+        <li>Pick one task and start a focus session.</li>
+        <li>Work until the timer ends, then take the suggested break.</li>
+        <li>After four focus sessions, take the long break.</li>
+      </ol>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
